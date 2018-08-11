@@ -18,3 +18,23 @@
     </div>
   </nav>
 </header>
+
+
+<ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Signup', signup_path %></li>
+          <li><%= link_to 'Login', login_path %></li>
+        </ul>
+        
+        
+        <% if logged_in? %>
+  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Microposts</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+ <li><%= link_to 'Logout', logout_path, method: :delete %></li>
